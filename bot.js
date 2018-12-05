@@ -31,6 +31,33 @@ client.on('ready', () => {
 
 
 });
+
+
+
+const Discord = require("discord.js");
+const x5bz = new Discord.Client();
+x5bz.on('ready', () => {
+  x5bz.user.setGame(` Just Shop Server.`,'https://www.twitch.tv/v5bz');
+  console.log('Im Ready!');
+});
+/* YT: iiPixlSA */
+x5bz.on('message', message => {
+   let embed = new Discord.RichEmbed()
+    let args = message.content.split(' ').slice(1).join(' ');
+if(message.content.split(' ')[0] == '#bc') {
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('** You Dont Have `ADMINISTRATOR` Permission **');
+            var bc = new Discord.RichEmbed()
+            .setAuthor(`Just Shop`, 'https://cdn.discordapp.com/attachments/348164773352964113/435947257854951424/2e57650b6a8681e7b390c544b6e81e47.jpg')
+            .addField('Server:', `${message.guild.name}`)
+            .addField('By:', `${message.author.username}#${message.author.discriminator}`)
+            .setColor('RANDOM')
+            .addField('Message: ', args)
+            m.send(`${m}`,{embed: bc});
+        });
+    }
+});
+
  
  client.on('ready',async () => {
 console.log("Starting..");
