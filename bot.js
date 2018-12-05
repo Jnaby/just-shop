@@ -34,72 +34,72 @@ client.on('ready', () => {
 
 
 
-const Discord = require("discord.js");
-const x5bz = new Discord.Client();
-x5bz.on('ready', () => {
-  x5bz.user.setGame(` Just Shop Server.`,'https://www.twitch.tv/v5bz');
-  console.log('Im Ready!');
-});
-/* YT: iiPixlSA */
-x5bz.on('message', message => {
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == 'bc') {
-        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('** You Dont Have `ADMINISTRATOR` Permission **');
-            var bc = new Discord.RichEmbed()
-            .setAuthor(`Just Shop`, 'https://cdn.discordapp.com/attachments/348164773352964113/435947257854951424/2e57650b6a8681e7b390c544b6e81e47.jpg')
-            .addField('Server:', `${message.guild.name}`)
-            .addField('By:', `${message.author.username}#${message.author.discriminator}`)
-            .setColor('RANDOM')
-            .addField('Message: ', args)
-            m.send(`${m}`,{embed: bc});
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**Welcome To Just Shop 
+لطلب التصاميم : <@449950392722259989> 
+لطلب بوتات ميوزك ونشر : <@449950392722259989>
+`) 
+}).catch(console.error)
+})
+
+
+ 
+ 
+var prefix = "#"
+client.on('message', function(message) {
+    const myID = "323160008411971585";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+                if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send('** Status Yuo**').then(msg => {
+           msg.delete(500);
+          message.delete(500);
+        });
+    } else if(message.content.startsWith(prefix + "st")) {
+                if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/6xlez1');
+        message.channel.send('** Status Yuo**').then(msg => {
+           msg.delete(500);
+          message.delete(500);
+        });
+    } else if(message.content.startsWith(prefix + "ply")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send('** Status Yuo**').then(msg => {
+           msg.delete(500);
+          message.delete(500);
+        });
+} else if(message.content.startsWith(prefix + "ls")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send('** Status Yuo**').then(msg => {
+           msg.delete(500);
+          message.delete(500);
+        });
+    } else if(message.content.startsWith(prefix + "wt")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send('** Status Yuo**').then(msg => {
+           msg.delete(500);
+          message.delete(500);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+                        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send('** Status Yuo**').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(500);
+          message.delete(500);
         });
     }
 });
-
- 
- client.on('ready',async () => {
-console.log("Starting..");
-let g = client.guilds.get("499633648866164737");
-let c = g.channels.get("500651445327233034");
-if(c.type === 'voice') {
-c.join();
-setInterval(() => {
-if(!g.me.voiceChannel) c.join();
-}, 1);
-} else {
-console.log("Failed To Join:\n The Channel Type isn't \"text\"");
-}
-});
- 
- 
-const adminprefix = "#";
-const devs = ['323160008411971585'];
-client.on('message', message => {
-  var argresult = message.content.split(` `).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-   
-if (message.content.startsWith(adminprefix + 'setgame')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
-} else
-  if (message.content.startsWith(adminprefix + 'setname')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
-} else
-  if (message.content.startsWith(adminprefix + 'av')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      } else    
-if (message.content.startsWith(adminprefix + 'st')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
-}
- 
-});
-
 
 
 
