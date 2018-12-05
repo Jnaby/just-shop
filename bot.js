@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "2968"// البرفكس هنا
+var prefix = "#"// البرفكس هنا
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -44,7 +44,7 @@ x5bz.on('ready', () => {
 x5bz.on('message', message => {
    let embed = new Discord.RichEmbed()
     let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == '#bc') {
+if(message.content.split(' ')[0] == 'bc') {
         message.guild.members.forEach(m => {
    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('** You Dont Have `ADMINISTRATOR` Permission **');
             var bc = new Discord.RichEmbed()
