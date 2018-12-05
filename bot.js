@@ -39,11 +39,54 @@ client.on("guildMemberAdd", member => {
   return channel.send(`**Welcome To Just Shop 
 لطلب التصاميم : <@449950392722259989> 
 لطلب بوتات ميوزك ونشر : <@449950392722259989>
-`) 
+**`) 
 }).catch(console.error)
 })
 
+client.on('ready', () => {
+        client.user.setGame(`Just shop server.`,'https://www.twitch.tv/TEST-Broadcast');
+          console.log('Im Ready!');
+  
+        });
 
+  client.on('message', message => {
+    if (message.content.split(' ')[0] == '#bc')
+       message.guild.members.forEach( member => {
+         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+
+
+           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
+                                                      message.delete();
+            
+                                                    });
+            
+                                                  });
+   client.on("message", message => {
+       var prefix = "#";
+ 
+             var args = message.content.substring(prefix.length).split(" ");
+                if (message.content.startsWith(prefix + "b")) {
+                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+
+                          if (!args[1]) {
+                            
+                                 let embed3 = new Discord.RichEmbed()
+                                     .setDescription(":white_check_mark: | تم ارسال رسالة لا يوجد فيها شيء")
+                                       .setColor("#FF00FF")
+                                          message.channel.sendEmbed(embed3);
+                            
+                                        } else {
+
+                            
+                                           let embed4 = new Discord.RichEmbed()
+                                                            .setDescription(':white_check_mark: | تم ارسال الرساله للجميع ..')
+                                                                .setColor("#99999")
+                               
+                                                                message.channel.sendEmbed(embed4);
+                                                      message.delete();
+                            }
+                          }
+});
  
  
 var prefix = "#"
