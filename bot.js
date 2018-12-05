@@ -55,7 +55,8 @@ client.on('ready', () => {
         .setColor("RANDOM")
         
     .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
-    }
+   message.author.send
+ }
 }); 
 
 
@@ -67,10 +68,11 @@ client.on('ready', () => {
 client.on("guildMemberAdd", member => {
   member.createDM().then(function (channel) {
   return channel.send(`Welcome To **Just Gruop** 
+
 لطلب التصاميم : <@449950392722259989> 
-لطلب بوتات ميوزك النشر  : <@449950392722259989>
+لطلب بوتات ميوزك النشر  : <@323160008411971585>
 -
-لطلب النيترو : <@449950392722259989> `) 
+لطلب النيترو : <@323160008411971585> `) 
 }).catch(console.error)
 })
 
