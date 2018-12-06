@@ -65,16 +65,7 @@ client.on('ready', () => {
 
 
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`Welcome To **Just Gruop** 
 
-لطلب التصاميم : <@449950392722259989> 
-لطلب بوتات ميوزك النشر  : <@323160008411971585>
--
-لطلب النيترو : <@323160008411971585> `) 
-}).catch(console.error)
-})
 
 client.on('ready', () => {
         client.user.setGame(`Just Gruop server.`,'https://www.twitch.tv/TEST-Broadcast');
